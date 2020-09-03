@@ -1,0 +1,39 @@
+<resources>
+
+	<string name="app_name">Wandelpool</string>
+	<string name="nietIngelogd">Contactinformatie ziet u pas ingelogd bent!</string>
+	<string name="login">Login</string>
+	<string name="logout">Logout</string>
+	<string name="userName">Gebruikersnaam</string>
+	<string name="password">Wachtwoord</string>
+	<string name="wandelpoolHeader1">De wandelpool</string>
+	<string name="wandelpoolHeader2">Samen op pad &#8230;</string>
+	<string name="filter">filter</string>
+	<string name="soortTocht">Soort hike</string>
+	<string name="vanDatum">Datum van</string>
+	<string name="totDatum">Datum t/m</string>
+	<string name="locatie">Provincie/Land</string>
+	<string name="categorie">Categorie</string>
+	<string name="vanAfstand">Afstand van (km)</string>
+	<string name="totAfstand">Afstand t/m (km)</string>
+	<string name="organisator">Organisator</string>
+	<string name="prikbord">Prikbord</string>
+	<string name="filterlist_text">Filters</string>
+	<string name="filterlist_additem">Nieuw filter</string>
+	<string name="filterlist_removeitem">Verwijderen filter</string>
+	<string name="filterdetail_text">Filter</string>
+    <string name="todo">TODO</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+
+</resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical" >
+
+  <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/header"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/header" >
+
+    <TextView
+      android:id="@+id/headerText1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_alignTop="@+id/headerImage"
+      android:text="@string/wandelpoolHeader1"
+      android:textSize="22sp"
+      android:typeface="sans" />
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/headerText1"
+      android:text="@string/wandelpoolHeader2"
+      android:textSize="12sp"
+      android:typeface="sans" />
+
+    <ImageView
+      android:id="@+id/headerImage"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentRight="true"
+      android:src="@drawable/ic_launcher_background" />
+  </RelativeLayout>
+
+  <FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:scaleType="centerCrop"
+      android:src="@drawable/start" />
+
+    <GridView
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/startform_grid"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:columnWidth="200dp"
+      android:gravity="center_horizontal"
+      android:horizontalSpacing="20dp"
+      android:numColumns="3"
+      android:padding="5dp"
+      android:stretchMode="columnWidth"
+      android:textSize="22sp"
+      android:verticalSpacing="5dp" >
+    </GridView>
+  </FrameLayout>
+
+</LinearLayout>

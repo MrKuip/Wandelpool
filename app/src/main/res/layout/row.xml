@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="?android:attr/listPreferredItemHeight"
+  android:background="@drawable/rowheader" >
+
+  <TextView
+    android:id="@+id/datum"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginRight="6dip"
+    android:textColor="@color/white"
+    android:textStyle="bold" />
+
+  <ImageView
+    android:id="@+id/categorie"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:layout_alignBottom="@+id/datum"
+    android:layout_alignParentRight="true"
+    android:layout_alignTop="@+id/datum"
+    android:layout_marginLeft="6dip" />
+
+  <TextView
+    android:id="@+id/afstand"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:layout_alignBottom="@+id/datum"
+    android:layout_alignTop="@+id/datum"
+    android:layout_toLeftOf="@id/categorie"
+    android:textColor="@color/white"
+    android:textStyle="bold" />
+
+  <TextView
+    android:id="@+id/titel"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:layout_below="@id/datum"
+    android:textColor="@color/textColor" />
+
+  <TextView
+    android:id="@+id/traject"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:layout_below="@id/titel"
+    android:textColor="@color/textColor" />
+
+  <TextView
+    android:id="@+id/locatie"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:layout_alignParentLeft="true"
+    android:layout_below="@id/traject"
+    android:textColor="@color/white"
+    android:textStyle="bold" />
+
+  <TextView
+    android:id="@+id/organisator"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:layout_alignParentRight="true"
+    android:layout_below="@id/traject"
+    android:textColor="@color/white"
+    android:textStyle="bold" />
+
+</RelativeLayout>

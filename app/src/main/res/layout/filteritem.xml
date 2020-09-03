@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="?android:attr/listPreferredItemHeight"
+  >
+
+  <TextView
+    android:id="@+id/filter_item_name"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:textColor="@color/white"
+    android:textSize="22sp"
+    android:background="@drawable/content" 
+    android:paddingTop="16dip" 
+    android:paddingBottom="16dip" 
+    />
+
+</RelativeLayout>
