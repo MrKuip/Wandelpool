@@ -186,7 +186,7 @@ public class WandelpoolFilter
           public boolean accept(
               Hike hike, Object filterValue)
           {
-            return hike.getOrganisor().contains(filterValue.toString());
+            return hike.getOrganiser().contains(filterValue.toString());
           }
         },
     DAG_VAN_DE_WEEK("Dag van de week")

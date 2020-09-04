@@ -72,7 +72,7 @@ public class WandelpoolWebSite
         count++;
 
         System.out.printf("%03d %s %10.10s:  %-10.10s %-15.15s %s%n", count, hike.getId(),
-            hike.getCategory(), hike.getDateString(), hike.getOrganisor(), hike.getTitle());
+            hike.getCategory(), hike.getDateString(), hike.getOrganiser(), hike.getTitle());
 
         if (count >= maxCount)
         {
@@ -85,7 +85,7 @@ public class WandelpoolWebSite
         System.out.println("  dateString=" + hike.getDateString());
         System.out.println("  distance  =" + hike.getDistance());
         System.out.println("  location  =" + hike.getLocation());
-        System.out.println("  organizor =" + hike.getOrganisor());
+        System.out.println("  organizor =" + hike.getOrganiser());
         System.out.println("  title     =" + hike.getTitle());
         System.out.println("  traject   =" + hike.getTrajectory());
 
@@ -236,7 +236,7 @@ public class WandelpoolWebSite
     {
       Element table;
 
-      for (Hike.SoortTocht soortTocht : Hike.SoortTocht.values())
+      for (Hike.HikeType soortTocht : Hike.HikeType.values())
       {
         connection = Jsoup.connect(HIKES_URL);
         connection.data("meerdaags", soortTocht.getId());
@@ -265,12 +265,13 @@ public class WandelpoolWebSite
           tdCount = 0;
           for (Element td : tr.getElementsByTag("td"))
           {
+            Elements pList;
+
             tdCount++;
             switch (tdCount)
             {
               case 1:
                 String datumString;
-                Elements pList;
 
                 pList = td.select("p");
 
@@ -281,7 +282,10 @@ public class WandelpoolWebSite
                 hike.setParameter(Hike.Type.STATE, pList.get(1).text());
                 break;
               case 2:
-                hike.setTitle(td.select("p").get(0).text());
+                pList = td.select("p");
+
+                hike.setTitle(pList.get(0).text());
+                hike.setTrajectory(pList.get(1).text());
                 break;
               case 3:
                 Elements elements;
@@ -291,7 +295,7 @@ public class WandelpoolWebSite
                 break;
               case 4:
                 hike.setCategory(getCategory(td.getElementsByTag("img").get(0).attr("src")));
-                hike.setOrganisor(td.getElementsByTag("p").get(1).text());
+                hike.setOrganiser(td.getElementsByTag("p").get(1).text());
                 break;
             }
           }

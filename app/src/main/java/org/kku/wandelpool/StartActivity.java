@@ -63,7 +63,7 @@ public class StartActivity
     m_startFormList = new ArrayList<StartForm>();
     for (WandelpoolFilter wandelpoolFilter : Settings.getInstance().getFilterList())
     {
-      m_startFormList.add(new StartForm(wandelpoolFilter.getName(), WandelpoolActivity2.class,
+      m_startFormList.add(new StartForm(wandelpoolFilter.getName(), WandelpoolActivity.class,
           wandelpoolFilter));
     }
     //m_startFormList.add(new StartForm("Prikbord", WandelpoolActivity.class, null));

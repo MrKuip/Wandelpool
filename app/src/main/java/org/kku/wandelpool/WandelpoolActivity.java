@@ -124,7 +124,7 @@ public class WandelpoolActivity
         int position, View convertView, ViewGroup parent)
     {
       View v;
-      Hike wandeling;
+      Hike hike;
 
       v = convertView;
       if (v == null)
@@ -135,32 +135,35 @@ public class WandelpoolActivity
         v = vi.inflate(R.layout.row, null);
       }
 
-      wandeling = getItem(position);
-      if (wandeling != null)
+      hike = getItem(position);
+      if (hike != null)
       {
         TextView textView;
         ImageView categorieView;
 
         textView = v.findViewById(R.id.titel);
-        textView.setText(wandeling.getTitle());
+        textView.setText(hike.getTitle());
+
+        textView = v.findViewById(R.id.trajectory);
+        textView.setText(hike.getTrajectory());
 
         textView = v.findViewById(R.id.datum);
-        textView.setText(wandeling.getDateString());
+        textView.setText(hike.getDateString());
 
-        //textView = v.findViewById(R.id.traject);
-        //textView.setText(wandeling.getTrajectory());
+        textView = v.findViewById(R.id.state);
+        textView.setText(hike.getParameter(Hike.Type.STATE));
 
         textView = v.findViewById(R.id.afstand);
-        textView.setText(wandeling.getDistance());
+        textView.setText(hike.getDistance());
 
         categorieView = v.findViewById(R.id.categorie);
-        categorieView.setImageResource(wandeling.getCategory().getImage());
+        categorieView.setImageResource(hike.getCategory().getImage());
 
         textView = v.findViewById(R.id.locatie);
-        textView.setText(wandeling.getLocation());
+        textView.setText(hike.getLocation());
 
         textView = v.findViewById(R.id.organisator);
-        textView.setText(wandeling.getOrganisor());
+        textView.setText(hike.getOrganiser());
       }
       return v;
     }

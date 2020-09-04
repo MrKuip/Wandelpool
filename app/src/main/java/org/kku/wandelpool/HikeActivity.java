@@ -63,7 +63,7 @@ public class HikeActivity
 
       imageView = (ImageView) findViewById(R.id.categorie);
       imageView.setImageResource(hike.getCategory().getImage());
-      showTextView(hike, R.id.organisator, hike.getOrganisor());
+      showTextView(hike, R.id.organisator, hike.getOrganiser());
       showTextView(hike, R.id.titel, Hike.Type.TITEL);
       showTextView(hike, R.id.subtitel, Hike.Type.SUB_TITEL);
       showTextView(hike, R.id.datum, Hike.Type.DATE);

@@ -1,9 +1,9 @@
 package org.kku.wandelpool.domain;
 
 
+import org.cube.wandelpool.R;
 import org.kku.util.DateUtil;
 import org.kku.util.StringUtil;
-import org.cube.wandelpool.R;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -17,114 +17,114 @@ public class Hike
 {
   private static final long serialVersionUID = 1L;
   private String m_id;
-  private Date m_datum;
-  private String m_datumString;
-  private String m_titel;
-  private String m_traject;
-  private String m_afstand;
-  private Categorie m_categorie;
-  private String m_locatie;
-  private String m_organisator;
-  private SoortTocht m_soortTocht;
-  private Map<Type, String> m_parameterMap = new HashMap<Type, String>();
+  private Date m_date;
+  private String m_dateString;
+  private String m_title;
+  private String m_trajectory;
+  private String m_distance;
+  private Categorie m_category;
+  private String m_location;
+  private String m_organiser;
+  private HikeType m_hikeType;
+  private Map<Type, String> m_parameterMap = new HashMap<>();
 
   public Date getDate()
   {
-    return m_datum;
+    return m_date;
   }
 
   public void setDate(
       Date datum)
   {
-    m_datum = datum;
+    m_date = datum;
   }
 
   public String getTitle()
   {
-    return m_titel;
+    return m_title;
   }
 
   public void setTitle(
       String title)
   {
-    m_titel = title;
+    m_title = title;
   }
 
   public String getTrajectory()
   {
-    return m_traject;
+    return m_trajectory;
   }
 
-  public void setTraject(
-      String traject)
+  public void setTrajectory(
+      String trajectory)
   {
-    m_traject = traject;
+    m_trajectory = trajectory;
   }
 
   public String getDistance()
   {
-    return m_afstand;
+    return m_distance;
   }
 
   public void setDistance(
-      String afstand)
+      String distance)
   {
-    m_afstand = afstand;
+    m_distance = distance;
   }
 
   public Categorie getCategory()
   {
-    return m_categorie;
+    return m_category;
   }
 
   public void setCategory(
-      Categorie categorie)
+      Categorie category)
   {
-    m_categorie = categorie;
+    m_category = category;
   }
 
   public String getLocation()
   {
-    return m_locatie;
+    return m_location;
   }
 
   public void setLocation(
-      String locatie)
+      String location)
   {
-    m_locatie = locatie;
+    m_location = location;
   }
 
-  public String getOrganisor()
+  public String getOrganiser()
   {
-    return m_organisator;
+    return m_organiser;
   }
 
-  public void setOrganisor(
-      String organisator)
+  public void setOrganiser(
+      String organiser)
   {
-    m_organisator = organisator;
+    m_organiser = organiser;
   }
 
-  public SoortTocht getSoortTocht()
+  public HikeType getSoortTocht()
   {
-    return m_soortTocht;
+    return m_hikeType;
   }
 
   public void SetSoortTocht(
-      SoortTocht soortTocht)
+      HikeType soortTocht)
   {
-    m_soortTocht = soortTocht;
+    m_hikeType = soortTocht;
   }
 
   public String getDateString()
   {
-    return m_datumString;
+    return m_dateString;
   }
 
   public void setDateString(
       String datumString)
   {
-    m_datumString = datumString;
+    m_dateString = datumString;
   }
 
   public String getId()
@@ -180,14 +180,14 @@ public class Hike
   {
     Date expirationDate;
 
-    if (m_datum == null)
+    if (m_date == null)
     {
       return true;
     }
 
     expirationDate = new Date();
     expirationDate = DateUtil.add(expirationDate, Calendar.MONTH, -3);
-    return m_datum.before(expirationDate);
+    return m_date.before(expirationDate);
   }
 
   public void copyUserData(
@@ -240,7 +240,7 @@ public class Hike
 
   }
 
-  public enum SoortTocht
+  public enum HikeType
   {
     EEN_DAG("Een daags", "0"),
     MEERDERE_DAGEN("Meerdere dagen", "1");
@@ -248,7 +248,7 @@ public class Hike
     private String mi_soortTocht;
     private String mi_id;
 
-    SoortTocht(String soortTocht, String id)
+    HikeType(String soortTocht, String id)
     {
       mi_soortTocht = soortTocht;
       mi_id = id;
@@ -265,7 +265,7 @@ public class Hike
     }
   }
 
-  public enum Locatie
+  public enum Location
   {
     Groningen("Groningen", "1"),
     Friesland("Friesland", "2"),
@@ -305,7 +305,7 @@ public class Hike
     public String mi_id;
     public String mi_text;
 
-    Locatie(String id, String text)
+    Location(String id, String text)
     {
       mi_id = id;
       mi_text = text;
