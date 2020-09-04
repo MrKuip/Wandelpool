@@ -1,5 +1,6 @@
 package org.kku.wandelpool;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,19 +17,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import org.cube.wandelpool.R;
 import org.kku.wandelpool.domain.Hike;
-import org.kku.wandelpool.domain.WandelpoolWebSite;
+import org.kku.wandelpool.domain.Website;
 
 import java.util.List;
 
 public class WandelpoolActivity
-    extends AppCompatActivity
+    extends Activity
 {
-  private HikeAdapter m_hikeAdapter;
-
   /**
    * Called when the activity is first created.
    */
@@ -43,15 +40,21 @@ public class WandelpoolActivity
     requestWindowFeature(Window.FEATURE_NO_TITLE);
     setContentView(R.layout.main);
 
+    WandelpoolPreferences.init(this);
+    Website.getInstance().login();
+
     try
     {
-      listView = findViewById(R.id.wandelingen);
-      listView.setOnItemClickListener(getOnItemClickListener());
+      listView = findViewById(R.id.hikes);
+      if (listView != null)
+      {
+        listView.setOnItemClickListener(getOnItemClickListener());
 
-      m_hikeAdapter = new HikeAdapter(this, R.layout.row,
-          WandelpoolWebSite.getInstance()
-                           .getHikeList().getList());
-      listView.setAdapter(m_hikeAdapter);
+        HikeAdapter hikeAdapter = new HikeAdapter(this, R.layout.row,
+            Website.getInstance()
+                   .getHikeList().getList());
+        listView.setAdapter(hikeAdapter);
+      }
     } catch (Exception ex)
     {
       ex.printStackTrace();
@@ -66,14 +69,14 @@ public class WandelpoolActivity
           AdapterView<?> parent, View view, int position, long id)
       {
         ListView lv;
-        Hike wandeling;
+        Hike hike;
         Intent intent;
         Bundle bundle;
 
-        lv = findViewById(R.id.wandelingen);
-        wandeling = (Hike) lv.getItemAtPosition(position);
+        lv = findViewById(R.id.hikes);
+        hike = (Hike) lv.getItemAtPosition(position);
         bundle = new Bundle();
-        bundle.putString(HikeActivity.WANDELING_ID, wandeling.getId());
+        bundle.putString(HikeActivity.HIKE_ID, hike.getId());
 
         intent = new Intent(WandelpoolActivity.this, HikeActivity.class);
         intent.putExtras(bundle);
@@ -103,7 +106,7 @@ public class WandelpoolActivity
     switch (item.getItemId())
     {
       case R.id.logout:
-        WandelpoolWebSite.getInstance().logout();
+        Website.getInstance().logout();
         return true;
     }
 

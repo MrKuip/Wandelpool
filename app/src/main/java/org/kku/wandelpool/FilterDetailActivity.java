@@ -77,7 +77,7 @@ public class FilterDetailActivity
         lv = (ListView) findViewById(R.id.filterdetail_items);
         wandeling = (Hike) lv.getItemAtPosition(position);
         bundle = new Bundle();
-        bundle.putString(HikeActivity.WANDELING_ID, wandeling.getId());
+        bundle.putString(HikeActivity.HIKE_ID, wandeling.getId());
 
         intent = new Intent(FilterDetailActivity.this, HikeActivity.class);
         intent.putExtras(bundle);

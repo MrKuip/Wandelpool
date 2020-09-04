@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import org.cube.wandelpool.R;
 import org.kku.wandelpool.domain.BulletinBoardItem;
-import org.kku.wandelpool.domain.WandelpoolWebSite;
+import org.kku.wandelpool.domain.Website;
 
 public class PrikbordActivity
     extends Activity
@@ -34,7 +34,7 @@ public class PrikbordActivity
     layout.setOrientation(LinearLayout.VERTICAL);
     scrollView.addView(layout);
 
-    for (BulletinBoardItem pi : WandelpoolWebSite.getInstance().getBulletinBoardItemList())
+    for (BulletinBoardItem pi : Website.getInstance().getBulletinBoardItemList())
     {
       TextView textView;
       View divider;

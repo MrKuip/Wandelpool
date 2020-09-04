@@ -1,9 +1,5 @@
 package org.kku.wandelpool.domain;
 
-import android.app.Application;
-
-import org.kku.wandelpool.WandelpoolApplication;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
@@ -31,10 +27,14 @@ public class CacheManager
 
     try
     {
-      fos = WandelpoolApplication.getInstance().openFileOutput(FILE_NAME, Application.MODE_PRIVATE);
-      oo = new ObjectOutputStream(new BufferedOutputStream(fos));
-      oo.writeObject(hikeList);
-      oo.close();
+      //fos = WandelpoolPreferences.openFileOutput(FILE_NAME, Application.MODE_PRIVATE);
+      fos = null;
+      if (fos != null)
+      {
+        oo = new ObjectOutputStream(new BufferedOutputStream(fos));
+        oo.writeObject(hikeList);
+        oo.close();
+      }
     } catch (IOException ex)
     {
       ex.printStackTrace();
@@ -44,16 +44,21 @@ public class CacheManager
   public static HikeList load()
   {
     ObjectInput oi;
-    HikeList tochten;
+    HikeList hikeList;
 
+    hikeList = null;
     try
     {
       FileInputStream fis;
 
-      fis = WandelpoolApplication.getInstance().openFileInput(FILE_NAME);
-      oi = new ObjectInputStream(new BufferedInputStream(fis));
-      tochten = (HikeList) oi.readObject();
-      oi.close();
+      //fis = WandelpoolPreferences.openFileInput(FILE_NAME);
+      fis = null;
+      if (fis != null)
+      {
+        oi = new ObjectInputStream(new BufferedInputStream(fis));
+        hikeList = (HikeList) oi.readObject();
+        oi.close();
+      }
     } catch (FileNotFoundException ex)
     {
       return null;
@@ -63,45 +68,6 @@ public class CacheManager
       return null;
     }
 
-    return tochten;
-  }
-
-  public static HikeList merge(
-      HikeList oldHikeList, HikeList newHikeList)
-  {
-    for (Hike hike : oldHikeList.getList())
-    {
-      Hike newHike;
-
-      if (hike.isCurrent())
-      {
-        if (hike.hasDetails())
-        {
-          continue;
-        }
-
-        if (!hike.hasUserData())
-        {
-          continue;
-        }
-      }
-
-      if (!hike.isExpired())
-      {
-        continue;
-      }
-
-      newHike = newHikeList.getHikeById(hike.getId());
-      if (newHike != null)
-      {
-        newHike.copyUserData(hike);
-      }
-      else
-      {
-        newHikeList.add(newHike);
-      }
-    }
-
-    return newHikeList;
+    return hikeList;
   }
 }

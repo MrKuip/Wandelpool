@@ -113,7 +113,7 @@ public class StartActivity
         button = new Button(mContext);
         button.setLayoutParams(new GridView.LayoutParams(140, 140));
         button.setPadding(8, 8, 8, 8);
-        button.setBackgroundDrawable(getResources().getDrawable(R.drawable.rowheader));
+        button.setBackground(getResources().getDrawable(R.drawable.rowheader));
         button.setText(startForm.getText());
         button.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
         button.setTextColor(getResources().getColor(R.color.textColor));

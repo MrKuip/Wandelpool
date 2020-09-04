@@ -14,10 +14,11 @@
         <activity android:name="org.kku.wandelpool.WandelpoolActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="org.kku.wandelpool.HikeActivity"/>
+        <activity android:name="org.kku.wandelpool.LoginActivity"/>
     </application>
 
 </manifest>

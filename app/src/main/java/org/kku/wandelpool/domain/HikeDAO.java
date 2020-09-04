@@ -21,6 +21,6 @@ public class HikeDAO
   public HikeList selectHikeList()
       throws WandelpoolException
   {
-    return WandelpoolWebSite.getInstance().getHikeList();
+    return Website.getInstance().getHikeList();
   }
 }

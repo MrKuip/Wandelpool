@@ -14,12 +14,12 @@ import android.widget.TextView;
 import org.cube.wandelpool.R;
 import org.kku.util.StringUtil;
 import org.kku.wandelpool.domain.Hike;
-import org.kku.wandelpool.domain.WandelpoolWebSite;
+import org.kku.wandelpool.domain.Website;
 
 public class HikeActivity
     extends Activity
 {
-  public static final String WANDELING_ID = "WANDELING_ID";
+  public static final String HIKE_ID = "HIKE_ID";
 
   /**
    * Called when the activity is first created.
@@ -32,7 +32,7 @@ public class HikeActivity
     super.onCreate(savedInstanceState);
 
     requestWindowFeature(Window.FEATURE_NO_TITLE);
-    setContentView(R.layout.wandeling);
+    setContentView(R.layout.hike);
   }
 
   private void showHike()
@@ -40,9 +40,9 @@ public class HikeActivity
     Hike hike;
     ImageView imageView;
     Button loginButton;
-    WandelpoolWebSite site;
+    Website site;
 
-    site = WandelpoolWebSite.getInstance();
+    site = Website.getInstance();
 
     if (site.isLoggedIn())
     {
@@ -209,9 +209,9 @@ public class HikeActivity
   {
     String tochtId;
 
-    tochtId = (String) getIntent().getExtras().get(WANDELING_ID);
+    tochtId = (String) getIntent().getExtras().get(HIKE_ID);
 
-    return WandelpoolWebSite.getInstance().getHikeDetails(tochtId);
+    return Website.getInstance().getHikeDetails(tochtId);
   }
 
   private String showTextView(

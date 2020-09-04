@@ -1,8 +1,5 @@
 package org.kku.wandelpool.domain;
 
-import android.app.Application;
-
-import org.kku.wandelpool.WandelpoolApplication;
 import org.kku.wandelpool.domain.WandelpoolFilter.FilterType;
 
 import java.io.FileInputStream;
@@ -47,10 +44,14 @@ public class Settings
 
     try
     {
-      fos = WandelpoolApplication.getInstance().openFileOutput(FILE_NAME, Application.MODE_PRIVATE);
-      oo = new ObjectOutputStream(fos);
-      oo.writeObject(getInstance().getFilterList());
-      oo.close();
+      //fos = WandelpoolPreferences.openFileOutput(FILE_NAME);
+      fos = null;
+      if (fos != null)
+      {
+        oo = new ObjectOutputStream(fos);
+        oo.writeObject(getInstance().getFilterList());
+        oo.close();
+      }
     } catch (IOException ex)
     {
       ex.printStackTrace();
@@ -65,10 +66,14 @@ public class Settings
     {
       FileInputStream fis;
 
-      fis = WandelpoolApplication.getInstance().openFileInput(FILE_NAME);
-      oi = new ObjectInputStream(fis);
-      getInstance().m_filterList = (List<WandelpoolFilter>) oi.readObject();
-      oi.close();
+      //fis = WandelpoolPreferences.openFileInput(FILE_NAME);
+      fis = null;
+      if (fis != null)
+      {
+        oi = new ObjectInputStream(fis);
+        getInstance().m_filterList = (List<WandelpoolFilter>) oi.readObject();
+        oi.close();
+      }
     } catch (Exception ex)
     {
       ex.printStackTrace();

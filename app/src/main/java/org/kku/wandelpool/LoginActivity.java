@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import org.cube.wandelpool.R;
 import org.kku.util.StringUtil;
-import org.kku.wandelpool.domain.WandelpoolWebSite;
+import org.kku.wandelpool.domain.Website;
 
 public class LoginActivity
     extends Activity
@@ -45,13 +45,16 @@ public class LoginActivity
         TextView passwordView;
         String password;
         String userName;
-        WandelpoolWebSite site;
+        Website site;
 
         userNameView = (TextView) findViewById(R.id.userName);
         passwordView = (TextView) findViewById(R.id.password);
 
         userName = userNameView.getText().toString();
         password = passwordView.getText().toString();
+
+        userName = "keeskuip@gmail.com";
+        password = "lalakz01wandelpool";
 
         if (StringUtil.isEmpty(userName))
         {
@@ -65,7 +68,7 @@ public class LoginActivity
           return;
         }
 
-        site = WandelpoolWebSite.getInstance();
+        site = Website.getInstance();
         try
         {
           if (site.login(userName, password))
@@ -95,5 +98,4 @@ public class LoginActivity
     alert = builder.create();
     alert.show();
   }
-
 }
