@@ -3,11 +3,13 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-      <color name="red">#f00</color>
-      <color name="orange">#ff9c00</color>
-      <color name="white">#ffffff</color>
-      <color name="blue">#ffffff</color>
-<!--       <color name="textColor">#99cbff</color> -->
-      <color name="rowheader">#00579a</color>
-      <color name="textColor">#bde0ff</color>
+
+    <color name="red">#f00</color>
+    <color name="orange">#ff9c00</color>
+    <color name="white">#ffffff</color>
+    <color name="blue">#ffffff</color>
+    <color name="rowheader">#00579a</color>
+    <color name="textColor">#bde0ff</color>
+    <color name="headerTextColor1">#009cda</color>
+    <color name="headerTextColor2">#4a72a7</color>
 </resources>

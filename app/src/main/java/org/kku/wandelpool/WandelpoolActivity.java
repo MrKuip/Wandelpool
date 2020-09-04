@@ -45,7 +45,7 @@ public class WandelpoolActivity
 
     try
     {
-      listView = (ListView) findViewById(R.id.wandelingen);
+      listView = findViewById(R.id.wandelingen);
       listView.setOnItemClickListener(getOnItemClickListener());
 
       m_hikeAdapter = new HikeAdapter(this, R.layout.row,
@@ -70,7 +70,7 @@ public class WandelpoolActivity
         Intent intent;
         Bundle bundle;
 
-        lv = (ListView) findViewById(R.id.wandelingen);
+        lv = findViewById(R.id.wandelingen);
         wandeling = (Hike) lv.getItemAtPosition(position);
         bundle = new Bundle();
         bundle.putString(HikeActivity.WANDELING_ID, wandeling.getId());
@@ -141,25 +141,25 @@ public class WandelpoolActivity
         TextView textView;
         ImageView categorieView;
 
-        textView = (TextView) v.findViewById(R.id.titel);
+        textView = v.findViewById(R.id.titel);
         textView.setText(wandeling.getTitle());
 
-        textView = (TextView) v.findViewById(R.id.datum);
+        textView = v.findViewById(R.id.datum);
         textView.setText(wandeling.getDateString());
 
-        textView = (TextView) v.findViewById(R.id.traject);
-        textView.setText(wandeling.getTrajectory());
+        //textView = v.findViewById(R.id.traject);
+        //textView.setText(wandeling.getTrajectory());
 
-        textView = (TextView) v.findViewById(R.id.afstand);
+        textView = v.findViewById(R.id.afstand);
         textView.setText(wandeling.getDistance());
 
-        categorieView = (ImageView) v.findViewById(R.id.categorie);
+        categorieView = v.findViewById(R.id.categorie);
         categorieView.setImageResource(wandeling.getCategory().getImage());
 
-        textView = (TextView) v.findViewById(R.id.locatie);
+        textView = v.findViewById(R.id.locatie);
         textView.setText(wandeling.getLocation());
 
-        textView = (TextView) v.findViewById(R.id.organisator);
+        textView = v.findViewById(R.id.organisator);
         textView.setText(wandeling.getOrganisor());
       }
       return v;

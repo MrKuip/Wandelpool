@@ -6,8 +6,8 @@
 	<string name="logout">Logout</string>
 	<string name="userName">Gebruikersnaam</string>
 	<string name="password">Wachtwoord</string>
-	<string name="wandelpoolHeader1">De wandelpool</string>
-	<string name="wandelpoolHeader2">Samen op pad &#8230;</string>
+	<string name="wandelpoolHeader1">Wandelen met anderen</string>
+	<string name="wandelpoolHeader2">Ontdek het, beleef het, doe mee met de wandelpool</string>
 	<string name="filter">filter</string>
 	<string name="soortTocht">Soort hike</string>
 	<string name="vanDatum">Datum van</string>
