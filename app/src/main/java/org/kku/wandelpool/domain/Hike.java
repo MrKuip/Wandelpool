@@ -16,135 +16,59 @@ public class Hike
     implements Serializable
 {
   private static final long serialVersionUID = 1L;
-  private String m_id;
-  private Date m_date;
-  private String m_dateString;
-  private String m_title;
-  private String m_trajectory;
-  private String m_distance;
-  private Categorie m_category;
-  private String m_location;
-  private String m_organiser;
-  private HikeType m_hikeType;
-  private Map<Type, String> m_parameterMap = new HashMap<>();
+  private Map<Type, Object> m_parameterMap = new HashMap<>();
 
   public Date getDate()
   {
-    return m_date;
+    return (Date) Type.DATE.getObject(this);
   }
 
   public void setDate(
-      Date datum)
+      Date date)
   {
-    m_date = datum;
+    Type.DATE.set(this, date);
   }
 
-  public String getTitle()
+  public Category getCategory()
   {
-    return m_title;
-  }
-
-  public void setTitle(
-      String title)
-  {
-    m_title = title;
-  }
-
-  public String getTrajectory()
-  {
-    return m_trajectory;
-  }
-
-  public void setTrajectory(
-      String trajectory)
-  {
-    m_trajectory = trajectory;
-  }
-
-  public String getDistance()
-  {
-    return m_distance;
-  }
-
-  public void setDistance(
-      String distance)
-  {
-    m_distance = distance;
-  }
-
-  public Categorie getCategory()
-  {
-    return m_category;
+    return (Category) Type.CATEGORY.getObject(this);
   }
 
   public void setCategory(
-      Categorie category)
+      Category category)
   {
-    m_category = category;
+    Type.CATEGORY.set(this, category);
   }
 
-  public String getLocation()
+  public HikeType getHikeType()
   {
-    return m_location;
+    return (HikeType) Type.HIKE_TYPE.getObject(this);
   }
 
-  public void setLocation(
-      String location)
+  public void setHikeType(
+      HikeType hikeType)
   {
-    m_location = location;
-  }
-
-  public String getOrganiser()
-  {
-    return m_organiser;
-  }
-
-  public void setOrganiser(
-      String organiser)
-  {
-    m_organiser = organiser;
-  }
-
-  public HikeType getSoortTocht()
-  {
-    return m_hikeType;
-  }
-
-  public void SetSoortTocht(
-      HikeType soortTocht)
-  {
-    m_hikeType = soortTocht;
-  }
-
-  public String getDateString()
-  {
-    return m_dateString;
-  }
-
-  public void setDateString(
-      String datumString)
-  {
-    m_dateString = datumString;
+    Type.HIKE_TYPE.set(this, hikeType);
   }
 
   public String getId()
   {
-    return m_id;
+    return Type.ID.get(this);
   }
 
   public void setId(
       String id)
   {
-    m_id = id;
+    Type.ID.set(this, id);
   }
 
   public void setParameter(
-      Type parameterType, String parameterValue)
+      Type parameterType, Object parameterValue)
   {
     m_parameterMap.put(parameterType, parameterValue);
   }
 
-  public String getParameter(
+  public Object getParameter(
       Type parameterType)
   {
     return m_parameterMap.get(parameterType);
@@ -153,10 +77,23 @@ public class Hike
   public boolean hasParameter(
       Type parameterType)
   {
-    return !StringUtil.isEmpty(m_parameterMap.get(parameterType));
+    Object o;
+
+    o = m_parameterMap.get(parameterType);
+    if (o == null)
+    {
+      return false;
+    }
+
+    if (o instanceof String)
+    {
+      return StringUtil.isEmpty((String) o);
+    }
+
+    return true;
   }
 
-  public Map<Type, String> getParameterMap()
+  public Map<Type, Object> getParameterMap()
   {
     return m_parameterMap;
   }
@@ -179,15 +116,17 @@ public class Hike
   public boolean isExpired()
   {
     Date expirationDate;
+    Date date;
 
-    if (m_date == null)
+    date = getDate();
+    if (date == null)
     {
       return true;
     }
 
     expirationDate = new Date();
     expirationDate = DateUtil.add(expirationDate, Calendar.MONTH, -3);
-    return m_date.before(expirationDate);
+    return date.before(expirationDate);
   }
 
   public void copyUserData(
@@ -206,16 +145,21 @@ public class Hike
   public enum Type
   {
     ID,
-    TITEL,
-    SUB_TITEL,
+    TITLE,
+    SUB_TITLE,
     INTRODUCTION,
     DESCRIPTION,
     STATE,
     DATE,
+    DATE_STRING,
     ALTERNATIEVE_DATUM,
     TILL_DATE,
     TRAJECTORY,
     DISTANCE,
+    LOCATION,
+    ORGANISER,
+    CATEGORY,
+    HIKE_TYPE,
     MINIMALE_AFSTAND,
     MAXIMALE_AFSTAND,
     ASSEMBLY_POINT,
@@ -236,8 +180,30 @@ public class Hike
     MOBIEL2,
     EMAIL_2,
     USER_STARRED,
-    USER_INFO,
+    USER_INFO;
 
+    public String get(Hike hike)
+    {
+      Object o;
+
+      o = getObject(hike);
+      if (o instanceof String)
+      {
+        return (String) o;
+      }
+
+      return null;
+    }
+
+    public <T> T getObject(Hike hike)
+    {
+      return (T) hike.getParameter(this);
+    }
+
+    public void set(Hike hike, Serializable value)
+    {
+      hike.setParameter(this, value);
+    }
   }
 
   public enum HikeType
@@ -322,7 +288,7 @@ public class Hike
     }
   }
 
-  public enum Categorie
+  public enum Category
   {
     SCHOEN_00("-1", "0 schoentjes (stilstaan)", R.drawable.schoen00),
     SCHOEN_05("-1", "0,5 schoentje", R.drawable.schoen05),
@@ -344,7 +310,7 @@ public class Hike
     public String mi_text;
     private int m_image;
 
-    Categorie(String id, String text, int image)
+    Category(String id, String text, int image)
     {
       mi_id = id;
       mi_text = text;

@@ -123,7 +123,7 @@ public class WandelpoolFilter
           public boolean accept(
               Hike hike, Object filterValue)
           {
-            return ObjectUtil.equals(hike.getSoortTocht(), filterValue);
+            return ObjectUtil.equals(hike.getHikeType(), filterValue);
           }
         },
     VAN_DATUM("Van datum")
@@ -150,7 +150,7 @@ public class WandelpoolFilter
           public boolean accept(
               Hike hike, Object filterValue)
           {
-            return ObjectUtil.equals(hike.getLocation(), filterValue);
+            return ObjectUtil.equals(Hike.Type.LOCATION.get(hike), filterValue);
           }
         },
     CATEGORIE("Categorie")
@@ -168,7 +168,7 @@ public class WandelpoolFilter
           public boolean accept(
               Hike hike, Object filterValue)
           {
-            return intValue(hike.getDistance()) >= intValue(filterValue.toString());
+            return intValue(Hike.Type.DISTANCE.get(hike)) >= intValue(filterValue.toString());
           }
         },
     TOT_AFSTAND("Tot afstand")
@@ -177,7 +177,7 @@ public class WandelpoolFilter
           public boolean accept(
               Hike hike, Object filterValue)
           {
-            return intValue(hike.getDistance()) <= intValue(filterValue.toString());
+            return intValue(Hike.Type.DISTANCE.get(hike)) <= intValue(filterValue.toString());
           }
         },
     ORGANISATOR("Organisator")
@@ -186,7 +186,7 @@ public class WandelpoolFilter
           public boolean accept(
               Hike hike, Object filterValue)
           {
-            return hike.getOrganiser().contains(filterValue.toString());
+            return Hike.Type.ORGANISER.get(hike).contains(filterValue.toString());
           }
         },
     DAG_VAN_DE_WEEK("Dag van de week")

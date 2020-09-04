@@ -1,87 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
-  android:layout_height="?android:attr/listPreferredItemHeight"
-  android:background="@color/white">
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:background="@color/white">
 
-  <TextView
-    android:id="@+id/datum"
-    android:layout_width="wrap_content"
-    android:layout_height="fill_parent"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:layout_marginTop="8dp"
-    android:layout_marginLeft="10dp"
-    android:textColor="@color/headerTextColor2"
-    android:textStyle="normal" />
+    <TextView
+        android:id="@+id/datum"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/headerTextColor2"
+        android:textStyle="normal" />
 
-  <ImageView
-    android:id="@+id/categorie"
-    android:layout_width="wrap_content"
-    android:layout_height="fill_parent"
-    android:layout_alignBottom="@+id/datum"
-    android:layout_alignParentRight="true"
-    android:layout_alignTop="@+id/datum"
-    android:layout_marginRight="10dp" />
+    <ImageView
+        android:id="@+id/categorie"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignTop="@+id/datum"
+        android:layout_alignBottom="@+id/datum"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp" />
 
-  <TextView
-    android:id="@+id/afstand"
-    android:layout_width="wrap_content"
-    android:layout_height="fill_parent"
-    android:layout_alignBottom="@+id/datum"
-    android:layout_alignTop="@+id/datum"
-    android:layout_toLeftOf="@id/categorie"
-    android:layout_marginLeft="10dp"
-    android:textColor="@color/headerTextColor2"
-    android:textStyle="normal" />
+    <TextView
+        android:id="@+id/afstand"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignTop="@+id/datum"
+        android:layout_alignBottom="@+id/datum"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@id/categorie"
+        android:textColor="@color/headerTextColor2"
+        android:textStyle="normal" />
 
-  <TextView
-      android:id="@+id/titel"
-      android:layout_width="wrap_content"
-      android:layout_height="fill_parent"
-      android:layout_below="@id/datum"
-      android:layout_marginLeft="10dp"
-      android:textColor="@color/headerTextColor1" />
+    <TextView
+        android:id="@+id/titel"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/datum"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/headerTextColor1" />
 
-  <TextView
-    android:id="@+id/trajectory"
-    android:layout_width="wrap_content"
-    android:layout_height="fill_parent"
-    android:layout_below="@id/titel"
-    android:layout_marginLeft="10dp"
-    android:textColor="@color/headerTextColor1" />
+    <TextView
+        android:id="@+id/trajectory"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/titel"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/headerTextColor1" />
 
-  <TextView
-    android:id="@+id/locatie"
-    android:layout_width="wrap_content"
-    android:layout_height="fill_parent"
-    android:layout_alignParentLeft="true"
-    android:layout_below="@id/trajectory"
-    android:layout_marginLeft="10dp"
-    android:layout_marginBottom="8dp"
-    android:textColor="@color/headerTextColor2"
-    android:textStyle="normal" />
+    <TextView
+        android:id="@+id/locatie"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/trajectory"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/headerTextColor2"
+        android:textStyle="normal" />
 
-  <TextView
-      android:id="@+id/state"
-      android:layout_width="wrap_content"
-      android:layout_height="fill_parent"
-      android:layout_toRightOf="@id/datum"
-      android:layout_below="@id/datum"
-      android:layout_marginLeft="10dp"
-      android:layout_alignBottom="@+id/datum"
-      android:layout_alignTop="@+id/datum"
-      android:textColor="@color/red"
-      android:textStyle="bold" />
+    <TextView
+        android:id="@+id/state"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/datum"
+        android:layout_alignTop="@+id/datum"
+        android:layout_alignBottom="@+id/datum"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/datum"
+        android:textColor="@color/red"
+        android:textStyle="bold" />
 
-  <TextView
-    android:id="@+id/organisator"
-    android:layout_width="wrap_content"
-    android:layout_height="fill_parent"
-    android:layout_alignParentRight="true"
-    android:layout_below="@id/trajectory"
-    android:layout_marginRight="10dp"
-    android:textColor="@color/headerTextColor2"
-    android:textStyle="normal" />
+    <TextView
+        android:id="@+id/organisator"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/trajectory"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/headerTextColor2"
+        android:textStyle="normal" />
 
 </RelativeLayout>
