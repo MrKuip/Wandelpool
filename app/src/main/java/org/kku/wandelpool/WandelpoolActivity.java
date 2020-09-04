@@ -145,28 +145,28 @@ public class WandelpoolActivity
         ImageView categorieView;
 
         textView = v.findViewById(R.id.titel);
-        textView.setText(hike.getTitle());
+        textView.setText(Hike.Type.TITLE.get(hike));
 
         textView = v.findViewById(R.id.trajectory);
-        textView.setText(hike.getTrajectory());
+        textView.setText(Hike.Type.TRAJECTORY.get(hike));
 
         textView = v.findViewById(R.id.datum);
-        textView.setText(hike.getDateString());
+        textView.setText(Hike.Type.DATE_STRING.get(hike));
 
         textView = v.findViewById(R.id.state);
-        textView.setText(hike.getParameter(Hike.Type.STATE));
+        textView.setText(Hike.Type.STATE.get(hike));
 
         textView = v.findViewById(R.id.afstand);
-        textView.setText(hike.getDistance());
+        textView.setText(Hike.Type.DISTANCE.get(hike));
 
         categorieView = v.findViewById(R.id.categorie);
         categorieView.setImageResource(hike.getCategory().getImage());
 
         textView = v.findViewById(R.id.locatie);
-        textView.setText(hike.getLocation());
+        textView.setText(Hike.Type.LOCATION.get(hike));
 
         textView = v.findViewById(R.id.organisator);
-        textView.setText(hike.getOrganiser());
+        textView.setText(Hike.Type.ORGANISER.get(hike));
       }
       return v;
     }

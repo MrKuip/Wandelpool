@@ -63,9 +63,9 @@ public class HikeActivity
 
       imageView = (ImageView) findViewById(R.id.categorie);
       imageView.setImageResource(hike.getCategory().getImage());
-      showTextView(hike, R.id.organisator, hike.getOrganiser());
-      showTextView(hike, R.id.titel, Hike.Type.TITEL);
-      showTextView(hike, R.id.subtitel, Hike.Type.SUB_TITEL);
+      showTextView(hike, R.id.organisator, Hike.Type.ORGANISER);
+      showTextView(hike, R.id.titel, Hike.Type.TITLE);
+      showTextView(hike, R.id.subtitel, Hike.Type.SUB_TITLE);
       showTextView(hike, R.id.datum, Hike.Type.DATE);
       showTextView(hike, R.id.totdatum, Hike.Type.TILL_DATE);
       showTextView(hike, R.id.traject, Hike.Type.TRAJECTORY);
@@ -215,13 +215,13 @@ public class HikeActivity
   }
 
   private String showTextView(
-      Hike wandeling, int id, Hike.Type type)
+      Hike hike, int id, Hike.Type type)
   {
-    return showTextView(wandeling, id, wandeling.getParameter(type));
+    return showTextView(hike, id, type.get(hike));
   }
 
   private String showTextView(
-      Hike wandeling, int id, String parameter)
+      Hike hike, int id, String parameter)
   {
     TextView textView;
 
@@ -279,7 +279,7 @@ public class HikeActivity
         intent = new Intent(android.content.Intent.ACTION_SEND);
         intent.setType("plain/text");
         intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{email});
-        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, hike.getTitle());
+        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, (String) Hike.Type.TITLE.get(hike));
 
         startActivity(intent);
       }
