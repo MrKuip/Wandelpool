@@ -93,7 +93,8 @@ public class Website
           System.out.printf("  %-20.20s = %s%n", type, hike.getParameter(type));
         }
       }
-    } catch (Exception e)
+    }
+    catch (Exception e)
     {
       e.printStackTrace();
     }
@@ -113,7 +114,8 @@ public class Website
     try
     {
       return loginFuture.get(TIMEOUT, TimeUnit.MILLISECONDS);
-    } catch (Exception e)
+    }
+    catch (Exception e)
     {
       throw new WandelpoolException(e);
     }
@@ -137,7 +139,8 @@ public class Website
     try
     {
       login(userName, password);
-    } catch (Exception e)
+    }
+    catch (Exception e)
     {
       // Do Nothing
     }
@@ -215,7 +218,8 @@ public class Website
     try
     {
       m_hikeList = hikeListFuture.get(TIMEOUT, TimeUnit.MILLISECONDS);
-    } catch (Exception e)
+    }
+    catch (Exception e)
     {
       throw new WandelpoolException(e);
     }
@@ -322,7 +326,8 @@ public class Website
         }
       }
       hikeList.sort();
-    } catch (Exception e)
+    }
+    catch (Exception e)
     {
       throw new WandelpoolException(e);
     }

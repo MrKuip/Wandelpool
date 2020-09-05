@@ -35,7 +35,8 @@ public class CacheManager
         oo.writeObject(hikeList);
         oo.close();
       }
-    } catch (IOException ex)
+    }
+    catch (IOException ex)
     {
       ex.printStackTrace();
     }
@@ -59,10 +60,12 @@ public class CacheManager
         hikeList = (HikeList) oi.readObject();
         oi.close();
       }
-    } catch (FileNotFoundException ex)
+    }
+    catch (FileNotFoundException ex)
     {
       return null;
-    } catch (Exception ex)
+    }
+    catch (Exception ex)
     {
       ex.printStackTrace();
       return null;

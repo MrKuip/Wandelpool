@@ -52,7 +52,8 @@ public class Settings
         oo.writeObject(getInstance().getFilterList());
         oo.close();
       }
-    } catch (IOException ex)
+    }
+    catch (IOException ex)
     {
       ex.printStackTrace();
     }
@@ -74,7 +75,8 @@ public class Settings
         getInstance().m_filterList = (List<WandelpoolFilter>) oi.readObject();
         oi.close();
       }
-    } catch (Exception ex)
+    }
+    catch (Exception ex)
     {
       ex.printStackTrace();
     }

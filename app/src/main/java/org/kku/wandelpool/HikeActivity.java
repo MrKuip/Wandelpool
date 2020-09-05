@@ -167,7 +167,8 @@ public class HikeActivity
       {
         startDialActivity(R.id.mobiel2_action, text);
       }
-    } catch (Exception e)
+    }
+    catch (Exception e)
     {
       e.printStackTrace();
       return;
@@ -270,7 +271,8 @@ public class HikeActivity
         try
         {
           hike = getTocht();
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
           e.printStackTrace();
           return;

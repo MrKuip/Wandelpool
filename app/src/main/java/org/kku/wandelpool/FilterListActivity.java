@@ -53,7 +53,8 @@ public class FilterListActivity
 
       m_filterAdapter = new FilterAdapter(this, R.layout.filteritem);
       listView.setAdapter(m_filterAdapter);
-    } catch (Exception ex)
+    }
+    catch (Exception ex)
     {
     }
   }

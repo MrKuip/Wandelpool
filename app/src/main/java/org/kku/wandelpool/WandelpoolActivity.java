@@ -55,7 +55,8 @@ public class WandelpoolActivity
                    .getHikeList().getList());
         listView.setAdapter(hikeAdapter);
       }
-    } catch (Exception ex)
+    }
+    catch (Exception ex)
     {
       ex.printStackTrace();
     }

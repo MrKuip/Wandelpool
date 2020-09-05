@@ -78,7 +78,8 @@ public class LoginActivity
           }
           alert(getResources().getString(R.string.userName) + " of "
               + getResources().getString(R.string.password) + " fout");
-        } catch (Exception ex)
+        }
+        catch (Exception ex)
         {
           alert(ex.getMessage());
         }
