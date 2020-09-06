@@ -30,7 +30,7 @@ public class LoginActivity
     requestWindowFeature(Window.FEATURE_NO_TITLE);
     setContentView(R.layout.login);
 
-    button = (Button) findViewById(R.id.loginButton);
+    button = findViewById(R.id.loginButton);
     button.setOnClickListener(getLoginListener());
   }
 
@@ -47,14 +47,11 @@ public class LoginActivity
         String userName;
         Website site;
 
-        userNameView = (TextView) findViewById(R.id.userName);
-        passwordView = (TextView) findViewById(R.id.password);
+        userNameView = findViewById(R.id.userName);
+        passwordView = findViewById(R.id.password);
 
         userName = userNameView.getText().toString();
         password = passwordView.getText().toString();
-
-        userName = "keeskuip@gmail.com";
-        password = "lalakz01wandelpool";
 
         if (StringUtil.isEmpty(userName))
         {

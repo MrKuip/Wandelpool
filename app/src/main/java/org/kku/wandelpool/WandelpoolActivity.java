@@ -40,7 +40,7 @@ public class WandelpoolActivity
     requestWindowFeature(Window.FEATURE_NO_TITLE);
     setContentView(R.layout.main);
 
-    WandelpoolPreferences.init(this);
+    Preferences.init(this);
     Website.getInstance().login();
 
     try
@@ -104,11 +104,10 @@ public class WandelpoolActivity
   public boolean onOptionsItemSelected(
       MenuItem item)
   {
-    switch (item.getItemId())
+    if (item.getItemId() == R.id.logout)
     {
-      case R.id.logout:
-        Website.getInstance().logout();
-        return true;
+      Website.getInstance().logout();
+      return true;
     }
 
     return false;

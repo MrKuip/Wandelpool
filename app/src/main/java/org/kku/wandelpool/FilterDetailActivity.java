@@ -48,10 +48,10 @@ public class FilterDetailActivity
 
     try
     {
-      textView = (TextView) findViewById(R.id.headerText2);
+      textView = findViewById(R.id.headerText2);
       textView.setText(getWandelpoolFilter().getName());
 
-      listView = (ListView) findViewById(R.id.filterdetail_items);
+      listView = findViewById(R.id.filterdetail_items);
       listView.setOnItemClickListener(getOnItemClickListener());
       listView.setOnItemLongClickListener(getOnItemLongClickListener());
 
@@ -75,7 +75,7 @@ public class FilterDetailActivity
         Intent intent;
         Bundle bundle;
 
-        lv = (ListView) findViewById(R.id.filterdetail_items);
+        lv = findViewById(R.id.filterdetail_items);
         wandeling = (Hike) lv.getItemAtPosition(position);
         bundle = new Bundle();
         bundle.putString(HikeActivity.HIKE_ID, wandeling.getId());
@@ -163,22 +163,21 @@ public class FilterDetailActivity
   public boolean onOptionsItemSelected(
       MenuItem item)
   {
-    switch (item.getItemId())
+    if (item.getItemId() == R.id.filterlist_additem)
     {
-      case R.id.filterlist_additem:
-        AlertDialog.Builder alert;
-        ListView listView;
+      AlertDialog.Builder alert;
+      ListView listView;
 
-        alert = new AlertDialog.Builder(this);
+      alert = new AlertDialog.Builder(this);
 
-        alert.setTitle("Kies een filterregel");
+      alert.setTitle("Kies een filterregel");
 
-        listView = new ListView(this);
-        listView.setAdapter(new FilterTypeAdapter(this, android.R.layout.simple_list_item_1));
+      listView = new ListView(this);
+      listView.setAdapter(new FilterTypeAdapter(this, android.R.layout.simple_list_item_1));
 
-        alert.setView(listView);
-        alert.show();
-        return true;
+      alert.setView(listView);
+      alert.show();
+      return true;
     }
 
     return false;
@@ -214,10 +213,10 @@ public class FilterDetailActivity
       {
         TextView textView;
 
-        textView = (TextView) v.findViewById(R.id.filterdetail_itemname);
+        textView = v.findViewById(R.id.filterdetail_itemname);
         textView.setText(filter.getFilterType().getName());
 
-        textView = (TextView) v.findViewById(R.id.filterdetail_itemvalue);
+        textView = v.findViewById(R.id.filterdetail_itemvalue);
         textView.setText(filter.getFilterValue().toString());
       }
 

@@ -1,8 +1,5 @@
 package org.kku.wandelpool.domain;
 
-import java.io.FileOutputStream;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,60 +14,11 @@ public class HikeList
 {
   private static final long serialVersionUID = 1L;
 
-  private final static String FILE_NAME = "hikes.ser";
-  private List<Hike> m_hikeList = new ArrayList<Hike>();
+  private List<Hike> m_hikeList = new ArrayList<>();
   private Map<String, Hike> m_hikeMapById;
 
   public HikeList()
   {
-  }
-
-  public static void save(
-      HikeList hikeList)
-  {
-    ObjectOutput oo;
-    FileOutputStream fos;
-
-    /*
-    try
-    {
-      fos = WandelpoolApplication.getInstance().openFileOutput(FILE_NAME, Application.MODE_PRIVATE);
-      oo = new ObjectOutputStream(new BufferedOutputStream(fos));
-      oo.writeObject(hikeList);
-      oo.close();
-    }
-    catch (IOException ex)
-    {
-      ex.printStackTrace();
-    }
-     */
-  }
-
-  public static HikeList load()
-  {
-    ObjectInput oi;
-    HikeList hikeList;
-
-    /*
-    try
-    {
-      FileInputStream fis;
-
-      fis = WandelpoolApplication.getInstance().openFileInput(FILE_NAME);
-      oi = new ObjectInputStream(new BufferedInputStream(fis));
-      hikeList = (HikeList) oi.readObject();
-      oi.close();
-
-      return hikeList;
-    }
-    catch (Exception ex)
-    {
-      ex.printStackTrace();
-      return null;
-    }
-     */
-
-    return null;
   }
 
   public static HikeList merge(
@@ -138,7 +86,7 @@ public class HikeList
   {
     if (m_hikeMapById == null)
     {
-      m_hikeMapById = new HashMap<String, Hike>();
+      m_hikeMapById = new HashMap<>();
       for (Hike hike : getList())
       {
         m_hikeMapById.put(hike.getId(), hike);
@@ -150,10 +98,10 @@ public class HikeList
 
   public void sort()
   {
-    Collections.sort(m_hikeList, new HikeComperator());
+    Collections.sort(m_hikeList, new HikeComparator());
   }
 
-  class HikeComperator
+  static private class HikeComparator
       implements Comparator<Hike>
   {
     @Override

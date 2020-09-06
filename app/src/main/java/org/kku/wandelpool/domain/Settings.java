@@ -1,7 +1,9 @@
 package org.kku.wandelpool.domain;
 
+import org.kku.wandelpool.Preferences;
 import org.kku.wandelpool.domain.WandelpoolFilter.FilterType;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -40,12 +42,13 @@ public class Settings
   public static void save()
   {
     ObjectOutput oo;
+    File file;
     FileOutputStream fos;
 
     try
     {
-      //fos = WandelpoolPreferences.openFileOutput(FILE_NAME);
-      fos = null;
+      file = Preferences.getFile(FILE_NAME);
+      fos = new FileOutputStream(file);
       if (fos != null)
       {
         oo = new ObjectOutputStream(fos);
@@ -65,10 +68,11 @@ public class Settings
 
     try
     {
+      File file;
       FileInputStream fis;
 
-      //fis = WandelpoolPreferences.openFileInput(FILE_NAME);
-      fis = null;
+      file = Preferences.getFile(FILE_NAME);
+      fis = new FileInputStream(file);
       if (fis != null)
       {
         oi = new ObjectInputStream(fis);
@@ -88,7 +92,7 @@ public class Settings
     {
       WandelpoolFilter wandelpoolFilter;
 
-      m_filterList = new ArrayList<WandelpoolFilter>();
+      m_filterList = new ArrayList<>();
 
       wandelpoolFilter = new WandelpoolFilter();
       m_filterList.add(wandelpoolFilter);

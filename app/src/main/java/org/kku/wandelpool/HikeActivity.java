@@ -61,7 +61,7 @@ public class HikeActivity
 
       hike = getTocht();
 
-      imageView = (ImageView) findViewById(R.id.categorie);
+      imageView = findViewById(R.id.categorie);
       imageView.setImageResource(hike.getCategory().getImage());
       showTextView(hike, R.id.organisator, Hike.Type.ORGANISER);
       showTextView(hike, R.id.titel, Hike.Type.TITLE);
@@ -174,7 +174,7 @@ public class HikeActivity
       return;
     }
 
-    loginButton = (Button) findViewById(R.id.loginButton);
+    loginButton = findViewById(R.id.loginButton);
     if (loginButton != null)
     {
       loginButton.setOnClickListener(getLoginListener());
@@ -226,10 +226,9 @@ public class HikeActivity
   {
     TextView textView;
 
-    textView = (TextView) findViewById(id);
+    textView = findViewById(id);
     if (textView == null)
     {
-      assert false : "textView cannot be null here (id=" + id + ")";
       return "";
     }
 
@@ -281,7 +280,7 @@ public class HikeActivity
         intent = new Intent(android.content.Intent.ACTION_SEND);
         intent.setType("plain/text");
         intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{email});
-        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, (String) Hike.Type.TITLE.get(hike));
+        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, Hike.Type.TITLE.get(hike));
 
         startActivity(intent);
       }

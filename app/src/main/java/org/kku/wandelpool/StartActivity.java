@@ -54,7 +54,7 @@ public class StartActivity
 
     initStartForm();
 
-    gridView = (GridView) findViewById(R.id.startform_grid);
+    gridView = findViewById(R.id.startform_grid);
     gridView.setAdapter(new ButtonAdapter(this));
   }
 

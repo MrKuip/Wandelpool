@@ -3,9 +3,9 @@ package org.kku.wandelpool;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import java.io.FileOutputStream;
+import java.io.File;
 
-public class WandelpoolPreferences
+public class Preferences
 {
   private static Context mi_context;
 
@@ -19,8 +19,8 @@ public class WandelpoolPreferences
     return mi_context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
   }
 
-  public static FileOutputStream openFileOutput(String fileName, int modePrivate)
+  public static File getFile(String fileName)
   {
-    return null;
+    return new File(mi_context.getFilesDir(), fileName);
   }
 }

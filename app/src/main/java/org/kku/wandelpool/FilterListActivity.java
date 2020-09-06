@@ -47,7 +47,7 @@ public class FilterListActivity
 
     try
     {
-      listView = (ListView) findViewById(R.id.filterlist_items);
+      listView = findViewById(R.id.filterlist_items);
       listView.setOnItemClickListener(getOnItemClickListener());
       listView.setOnItemLongClickListener(getOnItemLongClickListener());
 
@@ -71,7 +71,7 @@ public class FilterListActivity
         Intent intent;
         Bundle bundle;
 
-        lv = (ListView) findViewById(R.id.filterlist_items);
+        lv = findViewById(R.id.filterlist_items);
         wandelpoolFilter = (WandelpoolFilter) lv.getItemAtPosition(position);
         bundle = new Bundle();
         bundle.putString(FilterDetailActivity.FILTER_NAME, wandelpoolFilter.getName());
@@ -150,52 +150,51 @@ public class FilterListActivity
   public boolean onOptionsItemSelected(
       MenuItem item)
   {
-    switch (item.getItemId())
+    if (item.getItemId() == R.id.filterlist_additem)
     {
-      case R.id.filterlist_additem:
-        AlertDialog.Builder alert;
-        final EditText input;
+      AlertDialog.Builder alert;
+      final EditText input;
 
-        alert = new AlertDialog.Builder(this);
+      alert = new AlertDialog.Builder(this);
 
-        alert.setTitle("Nieuw filter aanmaken");
-        alert.setMessage("Vul de naam van de nieuwe filter in");
+      alert.setTitle("Nieuw filter aanmaken");
+      alert.setMessage("Vul de naam van de nieuwe filter in");
 
-        // Set an EditText view to get user input
-        input = new EditText(this);
-        alert.setView(input);
+      // Set an EditText view to get user input
+      input = new EditText(this);
+      alert.setView(input);
 
-        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener()
+      alert.setPositiveButton("Ok", new DialogInterface.OnClickListener()
+      {
+        public void onClick(
+            DialogInterface dialog, int whichButton)
         {
-          public void onClick(
-              DialogInterface dialog, int whichButton)
-          {
-            Editable value;
-            WandelpoolFilter wandelpoolFilter;
+          Editable value;
+          WandelpoolFilter wandelpoolFilter;
 
-            value = input.getText();
+          value = input.getText();
 
-            wandelpoolFilter = new WandelpoolFilter();
-            wandelpoolFilter.setName(value.toString());
+          wandelpoolFilter = new WandelpoolFilter();
+          wandelpoolFilter.setName(value.toString());
 
-            Settings.getInstance().getFilterList().add(wandelpoolFilter);
-            Settings.save();
+          Settings.getInstance().getFilterList().add(wandelpoolFilter);
+          Settings.save();
 
-            m_filterAdapter.notifyDataSetChanged();
-          }
-        });
+          m_filterAdapter.notifyDataSetChanged();
+        }
+      });
 
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
+      alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener()
+      {
+        public void onClick(
+            DialogInterface dialog, int whichButton)
         {
-          public void onClick(
-              DialogInterface dialog, int whichButton)
-          {
-            // Canceled.
-          }
-        });
+          // Canceled.
+        }
+      });
 
-        alert.show();
-        return true;
+      alert.show();
+      return true;
     }
 
     return false;
@@ -230,7 +229,7 @@ public class FilterListActivity
       {
         TextView textView;
 
-        textView = (TextView) v.findViewById(R.id.filter_item_name);
+        textView = v.findViewById(R.id.filter_item_name);
         textView.setText(filter.getName());
       }
 

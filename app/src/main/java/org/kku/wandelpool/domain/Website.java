@@ -10,10 +10,9 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.kku.util.DateUtil;
 import org.kku.util.StringUtil;
-import org.kku.wandelpool.WandelpoolPreferences;
+import org.kku.wandelpool.Preferences;
 import org.kku.wandelpool.domain.Hike.Category;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -127,7 +126,7 @@ public class Website
     String userName;
     String password;
 
-    pref = WandelpoolPreferences.getSharedPreferences(LOGIN_PREFERENCES);
+    pref = Preferences.getSharedPreferences(LOGIN_PREFERENCES);
     userName = pref.getString(USERNAME_PREFERENCE, "");
     password = pref.getString(PASSWORD_PREFERENCE, "");
 
@@ -168,7 +167,7 @@ public class Website
     Editor edit;
     SharedPreferences preferences;
 
-    preferences = WandelpoolPreferences.getSharedPreferences(LOGIN_PREFERENCES);
+    preferences = Preferences.getSharedPreferences(LOGIN_PREFERENCES);
     if (preferences == null)
     {
       return;
@@ -206,7 +205,7 @@ public class Website
       return m_hikeList;
     }
 
-    //m_hikeList = HikeList.load();
+    m_hikeList = HikeList.load();
     if (m_hikeList != null)
     {
       return m_hikeList;
@@ -224,7 +223,7 @@ public class Website
       throw new WandelpoolException(e);
     }
 
-    //HikeList.save(m_hikeList);
+    HikeList.save(m_hikeList);
 
     return m_hikeList;
   }
@@ -247,7 +246,6 @@ public class Website
       throws WandelpoolException
   {
     Document doc;
-    int tableCount;
     int trCount;
     int tdCount;
     Connection connection;
@@ -267,8 +265,6 @@ public class Website
         connection.data("einddatum", DateUtil.SQL_FORMATTER.format(endDate));
         connection.data("submit", HIKE_LIST_SUBMIT_REQUEST_DATA);
         doc = connection.post();
-
-        tableCount = 0;
 
         table = doc.select("table").get(1);
         trCount = 0;
@@ -582,7 +578,6 @@ public class Website
 
   private Date parseDate(
       String dateString)
-      throws ParseException
   {
     Calendar cal;
     int day;
@@ -597,8 +592,8 @@ public class Website
       return null;
     }
 
-    day = Integer.valueOf(dateString.substring(index1 + 1, index2));
-    month = Integer.valueOf(dateString.substring(index2 + 1));
+    day = Integer.parseInt(dateString.substring(index1 + 1, index2));
+    month = Integer.parseInt(dateString.substring(index2 + 1));
 
     cal = Calendar.getInstance();
     year = cal.get(Calendar.YEAR);
@@ -619,7 +614,7 @@ public class Website
     List<BulletinBoardItem> list;
     BulletinBoardItem bbi;
 
-    list = new ArrayList<BulletinBoardItem>();
+    list = new ArrayList<>();
 
     bbi = new BulletinBoardItem();
     bbi.setAuthor("P. Kuip ");
