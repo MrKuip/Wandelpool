@@ -205,7 +205,7 @@ public class Website
       return m_hikeList;
     }
 
-    m_hikeList = HikeList.load();
+    m_hikeList = CacheManager.load();
     if (m_hikeList != null)
     {
       return m_hikeList;
@@ -223,7 +223,7 @@ public class Website
       throw new WandelpoolException(e);
     }
 
-    HikeList.save(m_hikeList);
+    CacheManager.save(m_hikeList);
 
     return m_hikeList;
   }
@@ -571,7 +571,7 @@ public class Website
       hike.setParameter(Hike.Type.INTRODUCTION, null);
     }
 
-    HikeList.save(m_hikeList);
+    CacheManager.save(m_hikeList);
 
     return hike;
   }
