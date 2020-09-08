@@ -10,6 +10,9 @@
     <color name="blue">#ffffff</color>
     <color name="rowheader">#00579a</color>
     <color name="textColor">#bde0ff</color>
+    <color name="rowTextColor1">#3949AB</color>
+    <color name="rowTextColor2">#1A237E</color>
     <color name="headerTextColor1">#009cda</color>
     <color name="headerTextColor2">#4a72a7</color>
+    <color name="headerBackground">#E1F5FE</color>
 </resources>

@@ -16,7 +16,7 @@ public class WandelpoolFilter
   private static final long serialVersionUID = 1L;
   private String m_name;
   private boolean m_defaultFilter;
-  private List<Filter> m_filterList = new ArrayList<Filter>();
+  private List<Filter> m_filterList = new ArrayList<>();
 
   public WandelpoolFilter()
   {
@@ -168,7 +168,7 @@ public class WandelpoolFilter
           public boolean accept(
               Hike hike, Object filterValue)
           {
-            return intValue(Hike.Type.DISTANCE.get(hike)) >= intValue(filterValue.toString());
+            return intValue(Hike.Type.AFSTAND.get(hike)) >= intValue(filterValue.toString());
           }
         },
     TOT_AFSTAND("Tot afstand")
@@ -177,7 +177,7 @@ public class WandelpoolFilter
           public boolean accept(
               Hike hike, Object filterValue)
           {
-            return intValue(Hike.Type.DISTANCE.get(hike)) <= intValue(filterValue.toString());
+            return intValue(Hike.Type.AFSTAND.get(hike)) <= intValue(filterValue.toString());
           }
         },
     ORGANISATOR("Organisator")

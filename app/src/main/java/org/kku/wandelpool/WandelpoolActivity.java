@@ -3,6 +3,7 @@ package org.kku.wandelpool;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -136,6 +137,15 @@ public class WandelpoolActivity
 
         vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = vi.inflate(R.layout.row, null);
+      }
+
+      if (position % 2 == 1)
+      {
+        v.setBackgroundColor(Color.parseColor("#fafeff"));
+      }
+      else
+      {
+        v.setBackgroundColor(Color.WHITE);
       }
 
       hike = getItem(position);
