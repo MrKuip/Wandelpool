@@ -145,10 +145,10 @@ public class WandelpoolActivity
         ImageView categorieView;
 
         textView = v.findViewById(R.id.titel);
-        textView.setText(Hike.Type.TITLE.get(hike));
+        textView.setText(Hike.Type.TITEL.get(hike));
 
         textView = v.findViewById(R.id.trajectory);
-        textView.setText(Hike.Type.TRAJECTORY.get(hike));
+        textView.setText(Hike.Type.TRAJECT.get(hike));
 
         textView = v.findViewById(R.id.datum);
         textView.setText(Hike.Type.DATE_STRING.get(hike));
@@ -157,7 +157,7 @@ public class WandelpoolActivity
         textView.setText(Hike.Type.STATE.get(hike));
 
         textView = v.findViewById(R.id.afstand);
-        textView.setText(Hike.Type.DISTANCE.get(hike));
+        textView.setText(Hike.Type.AFSTAND.get(hike));
 
         categorieView = v.findViewById(R.id.categorie);
         categorieView.setImageResource(hike.getCategory().getImage());

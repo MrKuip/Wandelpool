@@ -31,13 +31,13 @@ public class Hike
 
   public Category getCategory()
   {
-    return (Category) Type.CATEGORY.getObject(this);
+    return (Category) Type.CATEGORIE.getObject(this);
   }
 
   public void setCategory(
       Category category)
   {
-    Type.CATEGORY.set(this, category);
+    Type.CATEGORIE.set(this, category);
   }
 
   public HikeType getHikeType()
@@ -145,39 +145,41 @@ public class Hike
   public enum Type
   {
     ID,
-    TITLE,
-    SUB_TITLE,
-    INTRODUCTION,
-    DESCRIPTION,
+    TITEL,
+    ETAPPE,
+    SUB_TITEL,
+    INLEIDING,
+    OMSCHRIJVING,
     STATE,
     DATE,
     DATE_STRING,
     ALTERNATIEVE_DATUM,
     TILL_DATE,
-    TRAJECTORY,
-    DISTANCE,
+    TRAJECT,
+    AFSTAND,
     LOCATION,
     ORGANISER,
-    CATEGORY,
+    CATEGORIE,
     HIKE_TYPE,
     MINIMALE_AFSTAND,
     MAXIMALE_AFSTAND,
-    ASSEMBLY_POINT,
-    ASSEMBLY_TIME,
-    OUTWARD_TRIP,
-    RETURN_TRIP,
-    DEELNEMERS_MINIMAAL,
-    MAXIMUM_NUMBER_OF_PARTICIPANTS,
+    VERZAMEL_PUNT,
+    VERZAMEL_TIJD,
+    HEENREIS,
+    TERUGREIS,
+    DEELNEMERS,
+    //DEELNEMERS_MINIMAAL,
+    //DEELNEMERS_MAXIMAAL,
     DEELNEMERS_COMMENTAAR,
-    REPORT_TO_1,
-    AANMELD_BIJZONDERHEDEN1,
-    PHONE_NUMBER_1,
-    MOBIEL1,
+    OPGEVEN_BIJ_1,
+    AANMELD_BIJZONDERHEDEN_1,
+    TELEFOONNUMMER_1,
+    MOBIEL_1,
     EMAIL_1,
-    REPORT_TO_2,
-    AANMELD_BIJZONDERHEDEN2,
-    PHONE_NUMBER_2,
-    MOBIEL2,
+    OPGEVEN_BIJ_2,
+    AANMELD_BIJZONDERHEDEN_2,
+    TELEFOONNUMMER_2,
+    MOBIEL_2,
     EMAIL_2,
     USER_STARRED,
     USER_INFO;

@@ -59,56 +59,59 @@ public class HikeActivity
     {
       String text, text2;
 
-      hike = getTocht();
+      hike = getHike();
 
       imageView = findViewById(R.id.categorie);
-      imageView.setImageResource(hike.getCategory().getImage());
+      if (hike.getCategory() != null)
+      {
+        imageView.setImageResource(hike.getCategory().getImage());
+      }
       showTextView(hike, R.id.organisator, Hike.Type.ORGANISER);
-      showTextView(hike, R.id.titel, Hike.Type.TITLE);
-      showTextView(hike, R.id.subtitel, Hike.Type.SUB_TITLE);
+      showTextView(hike, R.id.titel, Hike.Type.TITEL);
+      showTextView(hike, R.id.subtitel, Hike.Type.SUB_TITEL);
       showTextView(hike, R.id.datum, Hike.Type.DATE);
       showTextView(hike, R.id.totdatum, Hike.Type.TILL_DATE);
-      showTextView(hike, R.id.traject, Hike.Type.TRAJECTORY);
-      showTextView(hike, R.id.afstand, Hike.Type.DISTANCE);
+      showTextView(hike, R.id.traject, Hike.Type.TRAJECT);
+      showTextView(hike, R.id.afstand, Hike.Type.AFSTAND);
 
-      text = showTextView(hike, R.id.introductie, Hike.Type.INTRODUCTION);
+      text = showTextView(hike, R.id.introductie, Hike.Type.INLEIDING);
       if (StringUtil.isEmpty(text))
       {
         findViewById(R.id.introductieLabel).setVisibility(View.GONE);
       }
 
-      text = showTextView(hike, R.id.omschrijving, Hike.Type.DESCRIPTION);
+      text = showTextView(hike, R.id.omschrijving, Hike.Type.OMSCHRIJVING);
       if (StringUtil.isEmpty(text))
       {
         findViewById(R.id.omschrijvingLabel).setVisibility(View.GONE);
       }
 
-      text = showTextView(hike, R.id.verzamelpunt, Hike.Type.ASSEMBLY_POINT);
-      text2 = showTextView(hike, R.id.verzameltijd, Hike.Type.ASSEMBLY_TIME);
+      text = showTextView(hike, R.id.verzamelpunt, Hike.Type.VERZAMEL_PUNT);
+      text2 = showTextView(hike, R.id.verzameltijd, Hike.Type.VERZAMEL_TIJD);
       if (StringUtil.isEmpty(text) || StringUtil.isEmpty(text2))
       {
         findViewById(R.id.verzamelpuntLabel).setVisibility(View.GONE);
       }
 
-      text = showTextView(hike, R.id.heenreis, Hike.Type.OUTWARD_TRIP);
+      text = showTextView(hike, R.id.heenreis, Hike.Type.HEENREIS);
       if (StringUtil.isEmpty(text))
       {
         findViewById(R.id.heenreisLabel).setVisibility(View.GONE);
       }
 
-      text = showTextView(hike, R.id.terugreis, Hike.Type.RETURN_TRIP);
+      text = showTextView(hike, R.id.terugreis, Hike.Type.TERUGREIS);
       if (StringUtil.isEmpty(text))
       {
         findViewById(R.id.terugreisLabel).setVisibility(View.GONE);
       }
 
-      text = showTextView(hike, R.id.deelnemers, Hike.Type.MAXIMUM_NUMBER_OF_PARTICIPANTS);
+      text = showTextView(hike, R.id.deelnemers, Hike.Type.DEELNEMERS);
       if (StringUtil.isEmpty(text))
       {
         findViewById(R.id.deelnemersLabel).setVisibility(View.GONE);
       }
 
-      showTextView(hike, R.id.opgevenbij1, Hike.Type.REPORT_TO_1);
+      showTextView(hike, R.id.opgevenbij1, Hike.Type.OPGEVEN_BIJ_1);
       text = showTextView(hike, R.id.email1, Hike.Type.EMAIL_1);
       if (StringUtil.isEmpty(text))
       {
@@ -118,7 +121,7 @@ public class HikeActivity
       {
         startEmailActivity(R.id.email1_action, text);
       }
-      text = showTextView(hike, R.id.telefoonnummer1, Hike.Type.PHONE_NUMBER_1);
+      text = showTextView(hike, R.id.telefoonnummer1, Hike.Type.TELEFOONNUMMER_1);
       if (StringUtil.isEmpty(text))
       {
         findViewById(R.id.telefoonnummer1_action).setVisibility(View.GONE);
@@ -127,8 +130,8 @@ public class HikeActivity
       {
         startDialActivity(R.id.telefoonnummer1_action, text);
       }
-      showTextView(hike, R.id.aanmeldbijzonderheden1, Hike.Type.AANMELD_BIJZONDERHEDEN1);
-      text = showTextView(hike, R.id.mobiel1, Hike.Type.MOBIEL1);
+      showTextView(hike, R.id.aanmeldbijzonderheden1, Hike.Type.AANMELD_BIJZONDERHEDEN_1);
+      text = showTextView(hike, R.id.mobiel1, Hike.Type.MOBIEL_1);
       if (StringUtil.isEmpty(text))
       {
         findViewById(R.id.mobiel1_action).setVisibility(View.GONE);
@@ -138,7 +141,7 @@ public class HikeActivity
         startDialActivity(R.id.mobiel1_action, text);
       }
 
-      showTextView(hike, R.id.opgevenbij2, Hike.Type.REPORT_TO_2);
+      showTextView(hike, R.id.opgevenbij2, Hike.Type.OPGEVEN_BIJ_2);
       text = showTextView(hike, R.id.email2, Hike.Type.EMAIL_2);
       if (StringUtil.isEmpty(text))
       {
@@ -148,7 +151,7 @@ public class HikeActivity
       {
         startEmailActivity(R.id.email2_action, text);
       }
-      text = showTextView(hike, R.id.telefoonnummer2, Hike.Type.PHONE_NUMBER_2);
+      text = showTextView(hike, R.id.telefoonnummer2, Hike.Type.TELEFOONNUMMER_2);
       if (StringUtil.isEmpty(text))
       {
         findViewById(R.id.telefoonnummer2_action).setVisibility(View.GONE);
@@ -157,8 +160,8 @@ public class HikeActivity
       {
         startDialActivity(R.id.telefoonnummer2_action, text);
       }
-      showTextView(hike, R.id.aanmeldbijzonderheden2, Hike.Type.AANMELD_BIJZONDERHEDEN2);
-      text = showTextView(hike, R.id.mobiel2, Hike.Type.MOBIEL2);
+      showTextView(hike, R.id.aanmeldbijzonderheden2, Hike.Type.AANMELD_BIJZONDERHEDEN_2);
+      text = showTextView(hike, R.id.mobiel2, Hike.Type.MOBIEL_2);
       if (StringUtil.isEmpty(text))
       {
         findViewById(R.id.mobiel2_action).setVisibility(View.GONE);
@@ -205,14 +208,14 @@ public class HikeActivity
     }
   }
 
-  private Hike getTocht()
+  private Hike getHike()
       throws Exception
   {
-    String tochtId;
+    String hikeId;
 
-    tochtId = (String) getIntent().getExtras().get(HIKE_ID);
+    hikeId = (String) getIntent().getExtras().get(HIKE_ID);
 
-    return Website.getInstance().getHikeDetails(tochtId);
+    return Website.getInstance().getHikeDetails(hikeId);
   }
 
   private String showTextView(
@@ -269,7 +272,7 @@ public class HikeActivity
 
         try
         {
-          hike = getTocht();
+          hike = getHike();
         }
         catch (Exception e)
         {
@@ -280,7 +283,7 @@ public class HikeActivity
         intent = new Intent(android.content.Intent.ACTION_SEND);
         intent.setType("plain/text");
         intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{email});
-        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, Hike.Type.TITLE.get(hike));
+        intent.putExtra(android.content.Intent.EXTRA_SUBJECT, Hike.Type.TITEL.get(hike));
 
         startActivity(intent);
       }
