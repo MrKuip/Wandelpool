@@ -12,8 +12,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="8dp"
-        android:textColor="@color/headerTextColor2"
-        android:textStyle="normal" />
+        android:textColor="@color/rowTextColor1"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/categorie"
@@ -32,7 +32,7 @@
         android:layout_alignBottom="@+id/datum"
         android:layout_marginLeft="10dp"
         android:layout_toLeftOf="@id/categorie"
-        android:textColor="@color/headerTextColor2"
+        android:textColor="@color/rowTextColor2"
         android:textStyle="normal" />
 
     <TextView
@@ -41,7 +41,7 @@
         android:layout_height="fill_parent"
         android:layout_below="@id/datum"
         android:layout_marginLeft="10dp"
-        android:textColor="@color/headerTextColor1" />
+        android:textColor="@color/rowTextColor1" />
 
     <TextView
         android:id="@+id/trajectory"
@@ -49,7 +49,7 @@
         android:layout_height="fill_parent"
         android:layout_below="@id/titel"
         android:layout_marginLeft="10dp"
-        android:textColor="@color/headerTextColor1" />
+        android:textColor="@color/rowTextColor1" />
 
     <TextView
         android:id="@+id/locatie"
@@ -59,7 +59,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="8dp"
-        android:textColor="@color/headerTextColor2"
+        android:textColor="@color/rowTextColor2"
         android:textStyle="normal" />
 
     <TextView
@@ -81,7 +81,7 @@
         android:layout_below="@id/trajectory"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
-        android:textColor="@color/headerTextColor2"
-        android:textStyle="normal" />
+        android:textColor="@color/rowTextColor2"
+        android:textStyle="bold" />
 
 </RelativeLayout>
